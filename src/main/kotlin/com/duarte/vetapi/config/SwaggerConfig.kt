@@ -1,0 +1,36 @@
+package com.duarte.vetapi.config
+
+import io.swagger.v3.oas.models.OpenAPI
+import io.swagger.v3.oas.models.info.Contact
+import io.swagger.v3.oas.models.info.Info
+import io.swagger.v3.oas.models.info.License
+import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
+
+@Configuration
+class SwaggerConfiguration {
+
+    @Bean
+    fun customOpenAPI(): OpenAPI {
+        return OpenAPI()
+            .info(
+                Info()
+                    .title("VET API")
+                    .description("API para clínica veterinária.")
+                    .version("1.0.0")
+                    .contact(
+                        Contact().apply {
+                            name = "Vinícius Duarte"
+                            url = "https://github.com/DuarteVn"
+                            email = "viniciusduarte18@gmail.com"
+                        }
+                    )
+                    .license(
+                        License().apply {
+                            name = "Apache 2.0"
+                            url = "http://www.apache.org/licenses/LICENSE-2.0"
+                        }
+                    )
+            )
+    }
+}
