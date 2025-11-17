@@ -21,7 +21,7 @@ class AnimalServiceImpl (
         val tutor = tutorRepository.findById(tutorId)
             .orElseThrow { Exception("Tutor com id $tutorId não encontrado.") }
 
-        val especieId = animal.especie.id_especie ?: throw IllegalArgumentException("Id_especie não pode ser nulo")
+        val especieId = animal.especie.id ?: throw IllegalArgumentException("Id_especie não pode ser nulo")
         val especie = especieRepository.findById(especieId)
             .orElseThrow { Exception("Especie com id $especieId não encontrada.") }
 

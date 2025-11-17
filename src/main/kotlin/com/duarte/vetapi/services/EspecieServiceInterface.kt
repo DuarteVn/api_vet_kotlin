@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service
 @Service
 interface EspecieServiceInterface {
     fun addEspecie(especie: Especie): Especie
-    fun getEspecieID(id_especie: Long): Especie?
+    fun getEspecieID(id: Long): Especie?
     fun getAllEspecies(): List<Especie>
 
 }

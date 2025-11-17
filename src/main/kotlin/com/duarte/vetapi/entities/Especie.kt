@@ -13,7 +13,7 @@ data class Especie (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "id_especie")
-    var id_especie: Long = 0,
+    var id: Long? = null,
 
     @Column(name = "especie",unique = true, nullable = false)
     var name : String,
