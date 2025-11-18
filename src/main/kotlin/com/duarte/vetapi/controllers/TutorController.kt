@@ -21,7 +21,7 @@ class TutorController(private val tutorService: TutorServiceInterface) {
     @Operation(summary = "Listar tutores do animais pelo ID")
     @ApiResponses(value = [
         ApiResponse(responseCode = "200", description = "Tutor encontrado"),
-        ApiResponse(responseCode = "400", description = "Tutor não encontrado encontrado")
+        ApiResponse(responseCode = "400", description = "Tutor não encontrado")
     ])
     @GetMapping("/tutor/{id}")
     fun listarTutorID(@PathVariable id: Long): Tutor = tutorService.buscarPorId(id)
