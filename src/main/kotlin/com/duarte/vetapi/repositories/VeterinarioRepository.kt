@@ -11,7 +11,8 @@ interface VeterinarioRepository : JpaRepository<Veterinario, Long> {
 
 
     fun findByCrmv(crmv: String): Optional<Veterinario>
-
     fun findByCpf(cpf: String): Optional<Veterinario>
+
+    fun findByNomeContaining(parteDoNome: String): List<Veterinario>
 
 }

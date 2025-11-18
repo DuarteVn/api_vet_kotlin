@@ -17,16 +17,16 @@ data class Tutor(
     var id: Long = 0,
 
     @Column(name = "email", unique = true, nullable = false)
-    var email : String,
+    var email : String = "",
 
-    @Column(name = "tutor_name", unique = true, nullable = false)
-    var name : String,
+    @Column(name = "tutor_name", nullable = false)
+    var name : String = "",
 
     @Column(name = "password", nullable = false, length = 60)
-    var password : String,
+    var password : String = "",
 
     @Column(name= "cpf", unique = true, nullable = false)
-    var cpf : String,
+    var cpf : String = "",
 
     @Column(name = "create_time", nullable = false)
     var createTime : LocalDateTime = LocalDateTime.now(),

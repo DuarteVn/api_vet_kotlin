@@ -69,4 +69,11 @@ class AnimaisController (
         return ResponseEntity.ok(animais)
     }
 
+    @Operation(summary = "Listar animais por espécie")
+    @GetMapping("/especie/{especieId}")
+    fun buscarAnimaisPorEspecie(@PathVariable especieId: Long): ResponseEntity<List<Animal>> {
+        val animais = animalService.buscarPorEspecie(especieId)
+        return ResponseEntity.ok(animais)
+    }
+
 }

@@ -17,11 +17,11 @@ class AnimalServiceImpl (
     ) : AnimalServiceInterface{
 
     override fun criarAnimal(animal: Animal): Animal {
-        val tutorId = animal.tutor.id ?: throw IllegalArgumentException("Tutor ID não pode ser nulo")
+        val tutorId = animal.tutor?.id ?: throw IllegalArgumentException("Tutor ID não pode ser nulo")
         val tutor = tutorRepository.findById(tutorId)
             .orElseThrow { Exception("Tutor com id $tutorId não encontrado.") }
 
-        val especieId = animal.especie.id ?: throw IllegalArgumentException("Id_especie não pode ser nulo")
+        val especieId = animal.especie?.id ?: throw IllegalArgumentException("Id_especie não pode ser nulo")
         val especie = especieRepository.findById(especieId)
             .orElseThrow { Exception("Especie com id $especieId não encontrada.") }
 
@@ -42,5 +42,10 @@ class AnimalServiceImpl (
 
     override fun buscarPorTutor(tutorId: Long): List<Animal> {
         return animalRepository.findAllByTutorId(tutorId)
+    }
+
+
+    override fun buscarPorEspecie(especieId: Long): List<Animal> {
+        return animalRepository.findAllByEspecieId(especieId)
     }
 }

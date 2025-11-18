@@ -3,6 +3,7 @@ package com.duarte.vetapi.entities
 import com.fasterxml.jackson.annotation.JsonProperty
 import jakarta.persistence.*
 import java.sql.Date
+import java.time.LocalDate
 import java.time.LocalDateTime
 
 @Entity
@@ -11,22 +12,22 @@ data class Animal(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "id_animal")
-    var id_animal : Long = 0,
+    var id : Long = 0,
 
     @Column(name = "nome", nullable = false, length = 50)
-    var nome: String,
+    var nome: String = "",
 
     @Column(name = "raca")
-    var raca: String,
+    var raca: String? = null,
 
     @Column(name = "genero", length = 10)
-    var genero: String,
+    var genero: String? = null,
 
     @Column(name = "nascimento")
-    var nascimento: Date,
+    var nascimento: LocalDate? = null,
 
     @Column(name = "peso")
-    var peso: Double,
+    var peso: Double? = null,
 
     @Column(name = "create_time", nullable = false, updatable = false)
     var create_time : LocalDateTime = LocalDateTime.now(),
@@ -34,10 +35,10 @@ data class Animal(
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name= "tutor_id_tutor", nullable = false)
-    val tutor : Tutor,
+    val tutor : Tutor? = null,
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "especie_id_especie", nullable = false)
-    val especie: Especie
+    val especie: Especie? = null
 )

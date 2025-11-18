@@ -20,7 +20,7 @@ class SwaggerConfiguration {
                     .version("1.0.0")
                     .contact(
                         Contact().apply {
-                            name = "Vinícius Duarte"
+                            name = "Vinícius Duarte e Matheus Silva"
                             url = "https://github.com/DuarteVn"
                             email = "viniciusduarte18@gmail.com"
                         }

@@ -10,24 +10,24 @@ data class Veterinario(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "id_veterinario")
-    var id : Long = 0,
+    var id : Long? = null,
 
     @Column(name = "nome", nullable = false, length = 255)
-    var nome: String,
+    var nome: String = "",
 
     @Column(name = "cpf", nullable = false, length = 32, unique = true)
-    var cpf: String,
+    var cpf: String = "",
 
     @Column(name = "nascimento")
     var nascimento: LocalDate? = null,
 
     @Column(name = "crmv")
-    var crmv: String,
+    var crmv: String = "",
 
     @Column(name = "endereco", length = 255)
-    var endereco : String,
+    var endereco : String? = null,
 
     @Column(name = "telefone")
-    var telefone : String,
+    var telefone : String? = null,
 
     )

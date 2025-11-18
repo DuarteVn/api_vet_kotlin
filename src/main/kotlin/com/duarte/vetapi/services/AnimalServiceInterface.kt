@@ -10,4 +10,6 @@ interface AnimalServiceInterface {
     fun buscarAnimalPorId(id: Long): Animal?
     fun buscarAllAnimal(): List<Animal>
     fun buscarPorTutor(tutorId: Long): List<Animal>
+
+    fun buscarPorEspecie(especieId: Long): List<Animal>
 }

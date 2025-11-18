@@ -1,32 +1,32 @@
-/*package com.duarte.vetapi.entities
+package com.duarte.vetapi.entities
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.Table
-import java.sql.Date
+import com.fasterxml.jackson.annotation.JsonProperty
+import jakarta.persistence.*
 import java.time.LocalDateTime
+
 
 @Entity
 @Table(name = "consulta")
-data class Consulta (
+data class Consulta(
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name= "id_consulta")
-    var id: Long? = null,
+    @Column(name = "id_consulta")
+    val id: Long? = null,
 
-    @Column(name = "especie",unique = true, nullable = false)
-    var name : String,
-
-    @Column(name = "create_time", nullable = false, updatable = false)
-    var create_time : LocalDateTime = LocalDateTime.now(),
+    @Column(name = "data_hora_consulta", nullable = false)
+    val dataHoraConsulta: LocalDateTime,
 
     @Column(name = "create_time", nullable = false, updatable = false)
-    var create_time : LocalDateTime = LocalDateTime.now(),
+    val createTime: LocalDateTime = LocalDateTime.now(),
 
-    @Column(name = "create_time", nullable = false, updatable = false)
-    var create_time : LocalDateTime = LocalDateTime.now(),
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "animal_id_animal", nullable = false)
+    val animal: Animal,
 
-    )*/
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "veterinario_id_veterinario", nullable = false)
+    val veterinario: Veterinario
+)

@@ -16,6 +16,6 @@ data class Especie (
     var id: Long? = null,
 
     @Column(name = "especie",unique = true, nullable = false)
-    var name : String,
+    var name : String = "",
 
 )
